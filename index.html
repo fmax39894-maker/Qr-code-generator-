@@ -627,18 +627,18 @@ edit.addEventListener(
 
 
 /* ===============================
-        DOWNLOAD
+        DOWNLOAD QR
 =============================== */
 
 download.addEventListener(
     "click",
-    function(){
+    function () {
 
         const canvas =
             qr.querySelector("canvas");
 
 
-        if(!canvas){
+        if (!canvas) {
 
             alert(
                 "Generate a QR code first."
@@ -649,32 +649,82 @@ download.addEventListener(
         }
 
 
-        const link =
-            document.createElement("a");
+        try {
+
+            /*
+             * Convert QR canvas to PNG
+             */
+
+            const dataURL =
+                canvas.toDataURL(
+                    "image/png"
+                );
 
 
-        link.download =
-            "QR-Code.png";
+            /*
+             * Create download link
+             */
+
+            const link =
+                document.createElement("a");
+
+            link.href = dataURL;
+
+            link.download =
+                "QR-Code.png";
 
 
-        link.href =
-            canvas.toDataURL(
-                "image/png"
-            );
+            /*
+             * Some Android WebViews need
+             * the link to be temporarily
+             * attached to the document.
+             */
+
+            document.body.appendChild(link);
+
+            link.click();
+
+            document.body.removeChild(link);
 
 
-        document.body.appendChild(link);
+            status.textContent =
+                "Download started.";
 
-        link.click();
+            status.style.color =
+                "#4ade80";
 
-        document.body.removeChild(link);
+
+        } catch (error) {
+
+            console.error(error);
 
 
-        status.textContent =
-            "QR code downloaded.";
+            /*
+             * Fallback:
+             * open the QR image directly.
+             */
 
-        status.style.color =
-            "#4ade80";
+            try {
+
+                const dataURL =
+                    canvas.toDataURL(
+                        "image/png"
+                    );
+
+                window.open(
+                    dataURL,
+                    "_blank"
+                );
+
+            } catch (fallbackError) {
+
+                alert(
+                    "Unable to save the QR image."
+                );
+
+            }
+
+        }
 
     }
 );
