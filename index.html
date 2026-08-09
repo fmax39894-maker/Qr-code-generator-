@@ -656,69 +656,88 @@ download.addEventListener(
         }
 
 
-        try{
+        /*
+         * Convert canvas into a real PNG Blob.
+         * This avoids the Base64 filename problem.
+         */
 
-            /*
-             * Create a real PNG image
-             */
+        canvas.toBlob(
+            function(blob){
 
-            const dataURL =
-                canvas.toDataURL(
-                    "image/png"
+                if(!blob){
+
+                    alert(
+                        "Unable to create PNG image."
+                    );
+
+                    return;
+
+                }
+
+
+                /*
+                 * Create a temporary real
+                 * PNG object URL.
+                 */
+
+                const imageURL =
+                    URL.createObjectURL(blob);
+
+
+                const link =
+                    document.createElement("a");
+
+
+                link.href = imageURL;
+
+
+                /*
+                 * Clear Android-friendly filename.
+                 */
+
+                link.download =
+                    "QR-Code.png";
+
+
+                link.style.display =
+                    "none";
+
+
+                document.body.appendChild(link);
+
+
+                link.click();
+
+
+                document.body.removeChild(link);
+
+
+                /*
+                 * Release temporary memory.
+                 */
+
+                setTimeout(
+                    function(){
+
+                        URL.revokeObjectURL(
+                            imageURL
+                        );
+
+                    },
+                    1000
                 );
 
 
-            /*
-             * Clear, recognizable
-             * image filename
-             */
+                status.textContent =
+                    "QR-Code.png downloaded.";
 
-            const filename =
-                "QR-Code-Generator.png";
+                status.style.color =
+                    "#4ade80";
 
+            },
 
-            const link =
-                document.createElement("a");
-
-
-            link.href = dataURL;
-
-            link.download = filename;
-
-
-            /*
-             * Attach temporarily for
-             * Android/WebView compatibility
-             */
-
-            link.style.display = "none";
-
-            document.body.appendChild(link);
-
-            link.click();
-
-            document.body.removeChild(link);
-
-
-            status.textContent =
-                "Saved as " + filename;
-
-            status.style.color =
-                "#4ade80";
-
-
-        }
-
-        catch(error){
-
-            console.error(error);
-
-
-            alert(
-                "Unable to save QR image."
-            );
-
-        }
+            "image/png"
+        );
 
     }
 );
