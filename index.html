@@ -71,11 +71,8 @@ body{
 ========================================================= */
 
 .app{
-
     width:100%;
-
     max-width:560px;
-
     margin:auto;
 }
 
@@ -87,7 +84,6 @@ body{
 .header{
 
     display:flex;
-
     align-items:center;
 
     gap:13px;
@@ -103,14 +99,12 @@ body{
     flex:none;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
     border-radius:17px;
 
     font-size:16px;
-
     font-weight:900;
 
     letter-spacing:-.5px;
@@ -130,7 +124,6 @@ body{
 .header h1{
 
     font-size:22px;
-
     line-height:1.1;
 }
 
@@ -176,23 +169,27 @@ body{
 
 
 /* =========================================================
-   TITLES
+   TITLE
 ========================================================= */
 
 .title{
-
     margin-bottom:15px;
 }
 
-.title-row{
+.title h2{
 
-    display:flex;
+    font-size:17px;
+    line-height:1.3;
+}
 
-    align-items:center;
+.title p{
 
-    justify-content:space-between;
+    margin-top:5px;
 
-    gap:10px;
+    color:#8f9bb0;
+
+    font-size:11px;
+    line-height:1.5;
 }
 
 .step{
@@ -200,11 +197,9 @@ body{
     display:inline-flex;
 
     align-items:center;
-
     justify-content:center;
 
     min-width:28px;
-
     height:24px;
 
     padding:0 8px;
@@ -221,24 +216,6 @@ body{
     font-size:10px;
 
     font-weight:800;
-}
-
-.title h2{
-
-    font-size:17px;
-
-    line-height:1.3;
-}
-
-.title p{
-
-    margin-top:5px;
-
-    color:#8f9bb0;
-
-    font-size:11px;
-
-    line-height:1.5;
 }
 
 
@@ -269,9 +246,7 @@ textarea{
 
     color:#ffffff;
 
-    font-family:
-        Arial,
-        sans-serif;
+    font-family:Arial,sans-serif;
 
     font-size:15px;
 
@@ -293,7 +268,6 @@ textarea:focus{
 }
 
 textarea::placeholder{
-
     color:#667085;
 }
 
@@ -307,7 +281,6 @@ textarea::placeholder{
     display:flex;
 
     align-items:center;
-
     justify-content:space-between;
 
     margin-top:8px;
@@ -328,7 +301,7 @@ textarea::placeholder{
 
 
 /* =========================================================
-   PRIMARY BUTTON
+   BUTTON
 ========================================================= */
 
 .primary{
@@ -369,25 +342,16 @@ textarea::placeholder{
         box-shadow .15s;
 }
 
-.primary:hover{
-
-    box-shadow:
-        0 13px 30px
-        rgba(99,102,241,.30);
-}
-
 .primary:active{
-
     transform:scale(.975);
 }
 
 
 /* =========================================================
-   CUSTOMIZATION HEADER
+   CUSTOMIZATION
 ========================================================= */
 
 .custom-section{
-
     margin-top:20px;
 }
 
@@ -396,7 +360,6 @@ textarea::placeholder{
     display:flex;
 
     align-items:center;
-
     justify-content:space-between;
 
     margin-bottom:10px;
@@ -514,15 +477,14 @@ textarea::placeholder{
 
     color:#cbd5e1;
 
-    font-family:
-        monospace;
+    font-family:monospace;
 
     font-size:12px;
 }
 
 
 /* =========================================================
-   PRESET COLORS
+   COLOR PRESETS
 ========================================================= */
 
 .presets{
@@ -559,7 +521,6 @@ textarea::placeholder{
 }
 
 .preset:active{
-
     transform:scale(.90);
 }
 
@@ -574,7 +535,7 @@ textarea::placeholder{
 
 
 /* =========================================================
-   SHAPE GRID
+   SHAPE SELECTOR
 ========================================================= */
 
 .shape-grid{
@@ -600,7 +561,6 @@ textarea::placeholder{
     flex-direction:column;
 
     align-items:center;
-
     justify-content:center;
 
     gap:7px;
@@ -625,7 +585,6 @@ textarea::placeholder{
 }
 
 .shape-option:active{
-
     transform:scale(.96);
 }
 
@@ -643,6 +602,9 @@ textarea::placeholder{
         inset 0 0 0 1px
         rgba(99,102,241,.08);
 }
+
+
+/* Shape previews */
 
 .shape-preview{
 
@@ -668,22 +630,18 @@ textarea::placeholder{
 }
 
 .shape-preview.rounded span{
-
     border-radius:4px;
 }
 
 .shape-preview.dots{
-
     gap:4px;
 }
 
 .shape-preview.dots span{
-
     border-radius:50%;
 }
 
 .shape-preview.soft span{
-
     border-radius:2px;
 }
 
@@ -696,7 +654,7 @@ textarea::placeholder{
 
 
 /* =========================================================
-   WHITE BORDER / QUIET ZONE
+   WHITE BORDER CONTROL
 ========================================================= */
 
 .border-control{
@@ -745,92 +703,100 @@ textarea::placeholder{
 
 
 /* =========================================================
-   PREVIEW
+   SQUARE PREVIEW AREA
 ========================================================= */
 
 .qr-area{
 
-    min-height:355px;
+    width:100%;
+
+    aspect-ratio:1 / 1;
 
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
-    padding:20px;
+    padding:14px;
 
     border-radius:19px;
 
-    background:
-        #eef2f7;
+    background:#eef2f7;
 
     overflow:hidden;
 }
 
+
+/* =========================================================
+   SQUARE WHITE QR CARD
+========================================================= */
+
 #qr-card{
 
-    width:294px;
+    width:320px;
+    height:320px;
 
-    min-height:320px;
+    max-width:100%;
+    max-height:100%;
 
-    padding:
-        17px
-        17px
-        14px;
+    padding:14px;
 
     display:flex;
 
     flex-direction:column;
 
     align-items:center;
-
     justify-content:center;
 
     background:#ffffff;
 
-    border-radius:11px;
+    border-radius:10px;
 
     box-shadow:
         0 15px 45px
         rgba(15,23,42,.15);
 }
 
+
+/* =========================================================
+   QR
+========================================================= */
+
 #qr{
 
     width:260px;
-
     height:260px;
 
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
     background:#ffffff;
 }
 
 #qr canvas{
-
     display:none !important;
 }
 
 #customQR{
 
     width:260px;
-
     height:260px;
 
     display:block;
-
 }
+
+
+/* =========================================================
+   URL UNDER QR
+========================================================= */
 
 #qr-link{
 
     width:260px;
 
-    margin-top:8px;
+    margin-top:5px;
 
     padding:0 3px;
 
@@ -838,16 +804,21 @@ textarea::placeholder{
 
     color:#111827;
 
-    font-size:9px;
+    font-size:8px;
 
-    line-height:12px;
+    line-height:10px;
 
     word-break:break-all;
 
     overflow:hidden;
 
-    max-height:25px;
+    max-height:20px;
 }
+
+
+/* =========================================================
+   EMPTY
+========================================================= */
 
 .empty{
 
@@ -973,32 +944,69 @@ footer{
     }
 
     .shape-option{
-
         height:70px;
     }
 
     .qr-area{
 
-        padding:13px;
+        aspect-ratio:1 / 1;
 
-        min-height:335px;
+        padding:9px;
     }
 
     #qr-card{
 
-        width:282px;
+        width:300px;
+        height:300px;
+
+        padding:10px;
     }
 
     #qr,
-    #customQR,
-    #qr-link{
-
-        width:248px;
-    }
-
     #customQR{
 
-        height:248px;
+        width:245px;
+        height:245px;
+    }
+
+    #qr-link{
+
+        width:245px;
+
+        margin-top:4px;
+
+        font-size:7px;
+        line-height:9px;
+
+        max-height:18px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media(max-width:350px){
+
+    #qr-card{
+
+        width:280px;
+        height:280px;
+
+        padding:8px;
+    }
+
+    #qr,
+    #customQR{
+
+        width:230px;
+        height:230px;
+    }
+
+    #qr-link{
+        width:230px;
     }
 
 }
@@ -1052,8 +1060,8 @@ footer{
         </h2>
 
         <p>
-            Add a URL, text, contact information or any
-            other data you want to encode.
+            Add a URL, text, contact information or
+            any other data you want to encode.
         </p>
 
     </div>
@@ -1100,8 +1108,11 @@ footer{
     <div class="title">
 
         <h2>
+
             <span class="step">02</span>
+
             Customize your QR
+
         </h2>
 
         <p>
@@ -1164,7 +1175,6 @@ footer{
 
             <div class="presets">
 
-
                 <button
                     class="preset active"
                     data-color="#000000"
@@ -1172,7 +1182,6 @@ footer{
                     type="button"
                     aria-label="Black"
                 ></button>
-
 
                 <button
                     class="preset"
@@ -1182,60 +1191,53 @@ footer{
                     aria-label="Dark"
                 ></button>
 
-
                 <button
                     class="preset"
-                    data-color="#2563eb"
-                    style="background:#2563eb"
+                    data-color="#2563EB"
+                    style="background:#2563EB"
                     type="button"
                     aria-label="Blue"
                 ></button>
 
-
                 <button
                     class="preset"
-                    data-color="#4f46e5"
-                    style="background:#4f46e5"
+                    data-color="#4F46E5"
+                    style="background:#4F46E5"
                     type="button"
                     aria-label="Indigo"
                 ></button>
 
-
                 <button
                     class="preset"
-                    data-color="#7c3aed"
-                    style="background:#7c3aed"
+                    data-color="#7C3AED"
+                    style="background:#7C3AED"
                     type="button"
                     aria-label="Purple"
                 ></button>
 
-
                 <button
                     class="preset"
-                    data-color="#db2777"
-                    style="background:#db2777"
+                    data-color="#DB2777"
+                    style="background:#DB2777"
                     type="button"
                     aria-label="Pink"
                 ></button>
 
-
                 <button
                     class="preset"
-                    data-color="#dc2626"
-                    style="background:#dc2626"
+                    data-color="#DC2626"
+                    style="background:#DC2626"
                     type="button"
                     aria-label="Red"
                 ></button>
 
-
                 <button
                     class="preset"
-                    data-color="#ea580c"
-                    style="background:#ea580c"
+                    data-color="#EA580C"
+                    style="background:#EA580C"
                     type="button"
                     aria-label="Orange"
                 ></button>
-
 
                 <button
                     class="preset"
@@ -1245,15 +1247,13 @@ footer{
                     aria-label="Green"
                 ></button>
 
-
                 <button
                     class="preset"
-                    data-color="#0891b2"
-                    style="background:#0891b2"
+                    data-color="#0891B2"
+                    style="background:#0891B2"
                     type="button"
                     aria-label="Cyan"
                 ></button>
-
 
             </div>
 
@@ -1297,9 +1297,11 @@ footer{
                     <span></span>
                     <span></span>
                     <span></span>
+
                     <span></span>
                     <span></span>
                     <span></span>
+
                     <span></span>
                     <span></span>
                     <span></span>
@@ -1326,9 +1328,11 @@ footer{
                     <span></span>
                     <span></span>
                     <span></span>
+
                     <span></span>
                     <span></span>
                     <span></span>
+
                     <span></span>
                     <span></span>
                     <span></span>
@@ -1355,9 +1359,11 @@ footer{
                     <span></span>
                     <span></span>
                     <span></span>
+
                     <span></span>
                     <span></span>
                     <span></span>
+
                     <span></span>
                     <span></span>
                     <span></span>
@@ -1384,9 +1390,11 @@ footer{
                     <span></span>
                     <span></span>
                     <span></span>
+
                     <span></span>
                     <span></span>
                     <span></span>
+
                     <span></span>
                     <span></span>
                     <span></span>
@@ -1412,7 +1420,9 @@ footer{
 
         <div class="control-label">
 
-            <span>WHITE SCANNING BORDER</span>
+            <span>
+                WHITE SCANNING BORDER
+            </span>
 
             <span
                 id="borderLabel"
@@ -1524,7 +1534,6 @@ footer{
 
     <div class="actions">
 
-
         <button
             id="edit"
             class="action edit"
@@ -1542,7 +1551,6 @@ footer{
         >
             ↓ Download PNG
         </button>
-
 
     </div>
 
@@ -1666,7 +1674,7 @@ text.addEventListener(
 
 
 /* =========================================================
-   COLOR PICKER
+   COLOR
 ========================================================= */
 
 colorPicker.addEventListener(
@@ -1710,6 +1718,7 @@ function setColor(color){
 
                 button.classList.toggle(
                     "active",
+
                     button.dataset.color
                         .toUpperCase() ===
                     selectedColor
@@ -1749,7 +1758,7 @@ document
 
 
 /* =========================================================
-   SHAPE SELECTOR
+   SHAPE
 ========================================================= */
 
 document
@@ -1803,7 +1812,7 @@ document
 
 
 /* =========================================================
-   BORDER RANGE
+   BORDER
 ========================================================= */
 
 borderRange.addEventListener(
@@ -1980,7 +1989,7 @@ function createBaseQR(value){
 
 
 /* =========================================================
-   UPDATE EXISTING QR
+   LIVE UPDATE
 ========================================================= */
 
 function updatePreviewIfReady(){
@@ -2000,7 +2009,7 @@ function updatePreviewIfReady(){
 
 
 /* =========================================================
-   DRAW PROFESSIONAL QR
+   DRAW QR
 ========================================================= */
 
 function drawProfessionalQR(
@@ -2017,10 +2026,6 @@ function drawProfessionalQR(
         customQR.width;
 
 
-    /*
-     * Pure white background.
-     */
-
     ctx.clearRect(
         0,
         0,
@@ -2028,6 +2033,10 @@ function drawProfessionalQR(
         size
     );
 
+
+    /*
+     * Pure white background.
+     */
 
     ctx.fillStyle =
         "#ffffff";
@@ -2041,11 +2050,8 @@ function drawProfessionalQR(
     );
 
 
-    /*
-     * Get QR module matrix.
-     */
-
-    let modules = null;
+    let modules =
+        null;
 
 
     if(
@@ -2063,9 +2069,8 @@ function drawProfessionalQR(
 
 
     /*
-     * If the library doesn't expose
-     * its matrix, use the original
-     * QR canvas instead.
+     * Fallback to original QR
+     * if matrix isn't available.
      */
 
     if(!modules){
@@ -2098,7 +2103,7 @@ function drawProfessionalQR(
 
 
     /*
-     * Quiet zone.
+     * White quiet zone.
      */
 
     const quiet =
@@ -2120,7 +2125,7 @@ function drawProfessionalQR(
 
 
     /*
-     * Draw QR modules.
+     * Draw every module.
      */
 
     for(
@@ -2139,13 +2144,20 @@ function drawProfessionalQR(
                 modules[row][col]
             ){
 
-                drawSafeModule(
+                drawModule(
                     ctx,
-                    col * moduleSize + quiet,
-                    row * moduleSize + quiet,
+
+                    col * moduleSize +
+                    quiet,
+
+                    row * moduleSize +
+                    quiet,
+
                     moduleSize,
+
                     row,
                     col,
+
                     moduleCount
                 );
 
@@ -2159,10 +2171,10 @@ function drawProfessionalQR(
 
 
 /* =========================================================
-   SAFE MODULE DRAWING
+   DRAW MODULE
 ========================================================= */
 
-function drawSafeModule(
+function drawModule(
     ctx,
     x,
     y,
@@ -2173,22 +2185,17 @@ function drawSafeModule(
 ){
 
     /*
-     * Finder pattern zones.
-     *
-     * These are deliberately kept
-     * square for maximum scanner
-     * compatibility.
+     * Keep finder/corner patterns
+     * square for scanner reliability.
      */
 
-    const finder =
+    if(
         isFinderArea(
             row,
             col,
             moduleCount
-        );
-
-
-    if(finder){
+        )
+    ){
 
         ctx.fillRect(
             Math.round(x),
@@ -2203,52 +2210,58 @@ function drawSafeModule(
 
 
     let gap = 0;
-
     let radius = 0;
 
 
-    switch(selectedShape){
+    if(
+        selectedShape ===
+        "square"
+    ){
 
-        case "square":
+        gap = 0;
+        radius = 0;
 
-            gap = 0;
-
-            radius = 0;
-
-            break;
-
-
-        case "rounded":
-
-            gap =
-                size * .035;
-
-            radius =
-                size * .28;
-
-            break;
+    }
 
 
-        case "dots":
+    else if(
+        selectedShape ===
+        "rounded"
+    ){
 
-            gap =
-                size * .10;
+        gap =
+            size * .035;
 
-            radius =
-                size / 2;
+        radius =
+            size * .28;
 
-            break;
+    }
 
 
-        case "soft":
+    else if(
+        selectedShape ===
+        "dots"
+    ){
 
-            gap =
-                size * .025;
+        gap =
+            size * .10;
 
-            radius =
-                size * .16;
+        radius =
+            size / 2;
 
-            break;
+    }
+
+
+    else if(
+        selectedShape ===
+        "soft"
+    ){
+
+        gap =
+            size * .025;
+
+        radius =
+            size * .16;
 
     }
 
@@ -2261,9 +2274,14 @@ function drawSafeModule(
     const drawX =
         x + gap;
 
+
     const drawY =
         y + gap;
 
+
+    /*
+     * DOTS
+     */
 
     if(
         selectedShape ===
@@ -2287,6 +2305,10 @@ function drawSafeModule(
     }
 
 
+    /*
+     * SQUARE
+     */
+
     if(
         selectedShape ===
         "square"
@@ -2304,6 +2326,10 @@ function drawSafeModule(
     }
 
 
+    /*
+     * ROUNDED / SOFT
+     */
+
     roundedRect(
         ctx,
         drawX,
@@ -2319,7 +2345,7 @@ function drawSafeModule(
 
 
 /* =========================================================
-   FINDER AREAS
+   FINDER PATTERN AREA
 ========================================================= */
 
 function isFinderArea(
@@ -2355,6 +2381,7 @@ function isFinderArea(
         if(
             row >= zone.top &&
             row < zone.top + 7 &&
+
             col >= zone.left &&
             col < zone.left + 7
         ){
@@ -2470,7 +2497,8 @@ clear.addEventListener(
     "click",
     function(){
 
-        text.value = "";
+        text.value =
+            "";
 
         count.textContent =
             "0 / 1000";
@@ -2531,7 +2559,7 @@ edit.addEventListener(
 
 
 /* =========================================================
-   DOWNLOAD HIGH-RES PNG
+   DOWNLOAD SQUARE PNG
 ========================================================= */
 
 download.addEventListener(
@@ -2550,13 +2578,9 @@ download.addEventListener(
 
 
         /*
-         * Professional export:
+         * SQUARE HIGH-RESOLUTION OUTPUT
          *
-         * 1400 × 1580 PNG
-         *
-         * Large white QR area
-         * + QR
-         * + small URL/text
+         * 1400 × 1400
          */
 
         const scale =
@@ -2564,13 +2588,11 @@ download.addEventListener(
 
 
         const width =
-            350 *
-            scale;
+            350 * scale;
 
 
         const height =
-            395 *
-            scale;
+            350 * scale;
 
 
         const output =
@@ -2593,7 +2615,7 @@ download.addEventListener(
 
 
         /*
-         * White complete background.
+         * White square background.
          */
 
         ctx.fillStyle =
@@ -2609,12 +2631,11 @@ download.addEventListener(
 
 
         /*
-         * QR size.
+         * Large QR.
          */
 
         const qrSize =
-            320 *
-            scale;
+            300 * scale;
 
 
         const qrX =
@@ -2622,8 +2643,7 @@ download.addEventListener(
 
 
         const qrY =
-            17 *
-            scale;
+            12 * scale;
 
 
         ctx.imageSmoothingEnabled =
@@ -2640,7 +2660,7 @@ download.addEventListener(
 
 
         /*
-         * URL / text.
+         * URL/text underneath.
          */
 
         ctx.imageSmoothingEnabled =
@@ -2667,11 +2687,6 @@ download.addEventListener(
             lastValue;
 
 
-        /*
-         * Keep extremely long
-         * content readable.
-         */
-
         if(
             displayText.length >
             90
@@ -2690,12 +2705,12 @@ download.addEventListener(
         ctx.fillText(
             displayText,
             width / 2,
-            368 * scale
+            330 * scale
         );
 
 
         /*
-         * Export PNG.
+         * PNG download.
          */
 
         output.toBlob(
@@ -2732,6 +2747,10 @@ download.addEventListener(
                     "QR-Studio-Code.png";
 
 
+                link.style.display =
+                    "none";
+
+
                 document.body.appendChild(
                     link
                 );
@@ -2758,7 +2777,7 @@ download.addEventListener(
 
 
                 status.textContent =
-                    "High-resolution PNG downloaded.";
+                    "Square high-resolution PNG downloaded.";
 
                 status.style.color =
                     "#4ade80";
