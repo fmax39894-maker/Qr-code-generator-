@@ -10,7 +10,7 @@
     content="width=device-width,initial-scale=1.0,viewport-fit=cover"
 >
 
-<title>QR Studio — QR Code Generator</title>
+<title>QR Studio — Professional QR Generator</title>
 
 <style>
 
@@ -33,10 +33,7 @@ body{
 
     min-height:100vh;
 
-    padding:
-        18px
-        14px
-        30px;
+    padding:18px 14px 30px;
 
     font-family:
         Inter,
@@ -107,8 +104,6 @@ body{
     font-size:16px;
     font-weight:900;
 
-    letter-spacing:-.5px;
-
     background:
         linear-gradient(
             135deg,
@@ -160,16 +155,14 @@ body{
         0 20px 60px
         rgba(0,0,0,.15);
 
-    backdrop-filter:
-        blur(18px);
+    backdrop-filter:blur(18px);
 
-    -webkit-backdrop-filter:
-        blur(18px);
+    -webkit-backdrop-filter:blur(18px);
 }
 
 
 /* =========================================================
-   TITLE
+   TITLES
 ========================================================= */
 
 .title{
@@ -189,6 +182,7 @@ body{
     color:#8f9bb0;
 
     font-size:11px;
+
     line-height:1.5;
 }
 
@@ -251,10 +245,6 @@ textarea{
     font-size:15px;
 
     line-height:1.5;
-
-    transition:
-        border-color .2s,
-        box-shadow .2s;
 }
 
 textarea:focus{
@@ -301,7 +291,7 @@ textarea::placeholder{
 
 
 /* =========================================================
-   BUTTON
+   PRIMARY BUTTON
 ========================================================= */
 
 .primary{
@@ -325,8 +315,6 @@ textarea::placeholder{
             #8b5cf6
         );
 
-    font-family:Arial,sans-serif;
-
     font-size:14px;
 
     font-weight:800;
@@ -336,10 +324,6 @@ textarea::placeholder{
     box-shadow:
         0 10px 25px
         rgba(99,102,241,.20);
-
-    transition:
-        transform .15s,
-        box-shadow .15s;
 }
 
 .primary:active{
@@ -348,7 +332,7 @@ textarea::placeholder{
 
 
 /* =========================================================
-   CUSTOMIZATION
+   CONTROL SECTION
 ========================================================= */
 
 .custom-section{
@@ -384,7 +368,7 @@ textarea::placeholder{
 
 
 /* =========================================================
-   COLOR PICKER
+   COLOR PANEL
 ========================================================= */
 
 .color-panel{
@@ -416,11 +400,11 @@ textarea::placeholder{
 
     width:44px;
     height:44px;
-
-    flex:none;
 }
 
-#colorPicker{
+#colorPicker,
+#cornerColorPicker,
+#backgroundPicker{
 
     position:absolute;
 
@@ -446,17 +430,11 @@ textarea::placeholder{
         rgba(255,255,255,.8);
 
     background:#000000;
-
-    box-shadow:
-        0 4px 12px
-        rgba(0,0,0,.25);
 }
 
 .color-hex{
 
     flex:1;
-
-    min-width:0;
 
     height:44px;
 
@@ -484,7 +462,7 @@ textarea::placeholder{
 
 
 /* =========================================================
-   COLOR PRESETS
+   PRESETS
 ========================================================= */
 
 .presets{
@@ -514,14 +492,6 @@ textarea::placeholder{
         transparent;
 
     cursor:pointer;
-
-    transition:
-        transform .15s,
-        border-color .15s;
-}
-
-.preset:active{
-    transform:scale(.90);
 }
 
 .preset.active{
@@ -535,7 +505,85 @@ textarea::placeholder{
 
 
 /* =========================================================
-   SHAPE SELECTOR
+   SECONDARY COLORS
+========================================================= */
+
+.color-row-small{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:9px;
+
+    margin-top:12px;
+}
+
+.small-color{
+
+    padding:10px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius:13px;
+
+    background:
+        rgba(0,0,0,.12);
+}
+
+.small-color-title{
+
+    margin-bottom:8px;
+
+    color:#8b9bb3;
+
+    font-size:9px;
+
+    font-weight:800;
+}
+
+.small-color-inner{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+}
+
+.small-preview{
+
+    position:relative;
+
+    width:34px;
+    height:34px;
+
+    flex:none;
+
+    border-radius:9px;
+
+    border:
+        2px solid
+        rgba(255,255,255,.7);
+}
+
+.small-hex{
+
+    min-width:0;
+
+    color:#cbd5e1;
+
+    font-family:monospace;
+
+    font-size:9px;
+}
+
+
+/* =========================================================
+   MODULE SHAPES
 ========================================================= */
 
 .shape-grid{
@@ -552,9 +600,9 @@ textarea::placeholder{
 
     min-width:0;
 
-    height:79px;
+    height:76px;
 
-    padding:7px 4px;
+    padding:6px 4px;
 
     display:flex;
 
@@ -579,13 +627,7 @@ textarea::placeholder{
     cursor:pointer;
 
     transition:
-        border-color .18s,
-        background .18s,
-        transform .15s;
-}
-
-.shape-option:active{
-    transform:scale(.96);
+        .18s;
 }
 
 .shape-option.active{
@@ -603,13 +645,10 @@ textarea::placeholder{
         rgba(99,102,241,.08);
 }
 
-
-/* Shape previews */
-
 .shape-preview{
 
-    width:31px;
-    height:31px;
+    width:30px;
+    height:30px;
 
     display:grid;
 
@@ -630,7 +669,7 @@ textarea::placeholder{
 }
 
 .shape-preview.rounded span{
-    border-radius:4px;
+    border-radius:5px;
 }
 
 .shape-preview.dots{
@@ -641,20 +680,276 @@ textarea::placeholder{
     border-radius:50%;
 }
 
+.shape-preview.diamond span{
+
+    transform:
+        rotate(45deg)
+        scale(.72);
+}
+
 .shape-preview.soft span{
+    border-radius:3px;
+}
+
+.shape-preview.cross span{
     border-radius:2px;
 }
 
 .shape-name{
 
-    font-size:9px;
+    font-size:8px;
 
     font-weight:700;
 }
 
 
 /* =========================================================
-   WHITE BORDER CONTROL
+   FINDER / CORNER SHAPES
+========================================================= */
+
+.finder-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:8px;
+}
+
+.finder-option{
+
+    height:76px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:7px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.09);
+
+    border-radius:14px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    color:#94a3b8;
+
+    cursor:pointer;
+}
+
+.finder-option.active{
+
+    border-color:
+        rgba(129,140,248,.9);
+
+    background:
+        rgba(99,102,241,.15);
+
+    color:#ffffff;
+}
+
+.finder-preview{
+
+    width:31px;
+    height:31px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+}
+
+.finder-square{
+
+    width:29px;
+    height:29px;
+
+    border:
+        6px solid #ffffff;
+
+    position:relative;
+}
+
+.finder-square::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:9px;
+    height:9px;
+
+    left:4px;
+    top:4px;
+
+    background:#ffffff;
+}
+
+.finder-rounded{
+
+    width:29px;
+    height:29px;
+
+    border:
+        6px solid #ffffff;
+
+    border-radius:8px;
+
+    position:relative;
+}
+
+.finder-rounded::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:9px;
+    height:9px;
+
+    left:4px;
+    top:4px;
+
+    background:#ffffff;
+
+    border-radius:3px;
+}
+
+.finder-circle{
+
+    width:29px;
+    height:29px;
+
+    border:
+        6px solid #ffffff;
+
+    border-radius:50%;
+
+    position:relative;
+}
+
+.finder-circle::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:9px;
+    height:9px;
+
+    left:4px;
+    top:4px;
+
+    background:#ffffff;
+
+    border-radius:50%;
+}
+
+.finder-ring{
+
+    width:29px;
+    height:29px;
+
+    border:
+        5px solid #ffffff;
+
+    border-radius:50%;
+
+    position:relative;
+}
+
+.finder-ring::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:9px;
+    height:9px;
+
+    left:5px;
+    top:5px;
+
+    background:#ffffff;
+
+    border-radius:50%;
+}
+
+.finder-diamond{
+
+    width:22px;
+    height:22px;
+
+    transform:rotate(45deg);
+
+    border:
+        5px solid #ffffff;
+
+    position:relative;
+}
+
+.finder-diamond::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:7px;
+    height:7px;
+
+    left:3px;
+    top:3px;
+
+    background:#ffffff;
+}
+
+.finder-soft{
+
+    width:29px;
+    height:29px;
+
+    border:
+        6px solid #ffffff;
+
+    border-radius:12px;
+
+    position:relative;
+}
+
+.finder-soft::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:9px;
+    height:9px;
+
+    left:4px;
+    top:4px;
+
+    background:#ffffff;
+
+    border-radius:5px;
+}
+
+.finder-name{
+
+    font-size:8px;
+
+    font-weight:700;
+}
+
+
+/* =========================================================
+   WHITE BORDER
 ========================================================= */
 
 .border-control{
@@ -703,7 +998,7 @@ textarea::placeholder{
 
 
 /* =========================================================
-   SQUARE PREVIEW AREA
+   PREVIEW
 ========================================================= */
 
 .qr-area{
@@ -717,7 +1012,7 @@ textarea::placeholder{
     align-items:center;
     justify-content:center;
 
-    padding:14px;
+    padding:10px;
 
     border-radius:19px;
 
@@ -725,11 +1020,6 @@ textarea::placeholder{
 
     overflow:hidden;
 }
-
-
-/* =========================================================
-   SQUARE WHITE QR CARD
-========================================================= */
 
 #qr-card{
 
@@ -739,7 +1029,7 @@ textarea::placeholder{
     max-width:100%;
     max-height:100%;
 
-    padding:14px;
+    padding:12px;
 
     display:flex;
 
@@ -756,11 +1046,6 @@ textarea::placeholder{
         0 15px 45px
         rgba(15,23,42,.15);
 }
-
-
-/* =========================================================
-   QR
-========================================================= */
 
 #qr{
 
@@ -787,11 +1072,6 @@ textarea::placeholder{
     display:block;
 }
 
-
-/* =========================================================
-   URL UNDER QR
-========================================================= */
-
 #qr-link{
 
     width:260px;
@@ -813,22 +1093,6 @@ textarea::placeholder{
     overflow:hidden;
 
     max-height:20px;
-}
-
-
-/* =========================================================
-   EMPTY
-========================================================= */
-
-.empty{
-
-    color:#64748b;
-
-    text-align:center;
-
-    font-size:11px;
-
-    line-height:1.5;
 }
 
 
@@ -947,11 +1211,19 @@ footer{
         height:70px;
     }
 
+    .finder-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .finder-option{
+        height:70px;
+    }
+
     .qr-area{
-
         aspect-ratio:1 / 1;
-
-        padding:9px;
+        padding:7px;
     }
 
     #qr-card{
@@ -959,7 +1231,7 @@ footer{
         width:300px;
         height:300px;
 
-        padding:10px;
+        padding:9px;
     }
 
     #qr,
@@ -995,7 +1267,7 @@ footer{
         width:280px;
         height:280px;
 
-        padding:8px;
+        padding:7px;
     }
 
     #qr,
@@ -1047,7 +1319,7 @@ footer{
 
 
 <!-- =====================================================
-     INPUT
+     STEP 01
 ===================================================== -->
 
 <section class="card">
@@ -1055,13 +1327,18 @@ footer{
     <div class="title">
 
         <h2>
-            <span class="step">01</span>
+
+            <span class="step">
+                01
+            </span>
+
             Enter your content
+
         </h2>
 
         <p>
-            Add a URL, text, contact information or
-            any other data you want to encode.
+            Add a URL, text or any information
+            you want to encode.
         </p>
 
     </div>
@@ -1100,7 +1377,7 @@ footer{
 
 
 <!-- =====================================================
-     CUSTOMIZATION
+     STEP 02 CUSTOMIZE
 ===================================================== -->
 
 <section class="card">
@@ -1109,28 +1386,34 @@ footer{
 
         <h2>
 
-            <span class="step">02</span>
+            <span class="step">
+                02
+            </span>
 
             Customize your QR
 
         </h2>
 
         <p>
-            Personalize the QR appearance while keeping
-            the white scanning area.
+            Choose professional colors, module shapes
+            and three-corner styles.
         </p>
 
     </div>
 
 
 
-    <!-- COLOR -->
+    <!-- =================================================
+         MAIN QR COLOR
+    ================================================== -->
 
     <div class="custom-section">
 
         <div class="control-label">
 
-            <span>QR COLOR</span>
+            <span>
+                QR COLOR
+            </span>
 
             <span
                 id="colorLabel"
@@ -1157,7 +1440,6 @@ footer{
                         id="colorPicker"
                         type="color"
                         value="#000000"
-                        aria-label="Choose QR color"
                     >
 
                 </div>
@@ -1180,7 +1462,6 @@ footer{
                     data-color="#000000"
                     style="background:#000000"
                     type="button"
-                    aria-label="Black"
                 ></button>
 
                 <button
@@ -1188,7 +1469,6 @@ footer{
                     data-color="#111827"
                     style="background:#111827"
                     type="button"
-                    aria-label="Dark"
                 ></button>
 
                 <button
@@ -1196,7 +1476,6 @@ footer{
                     data-color="#2563EB"
                     style="background:#2563EB"
                     type="button"
-                    aria-label="Blue"
                 ></button>
 
                 <button
@@ -1204,7 +1483,6 @@ footer{
                     data-color="#4F46E5"
                     style="background:#4F46E5"
                     type="button"
-                    aria-label="Indigo"
                 ></button>
 
                 <button
@@ -1212,7 +1490,6 @@ footer{
                     data-color="#7C3AED"
                     style="background:#7C3AED"
                     type="button"
-                    aria-label="Purple"
                 ></button>
 
                 <button
@@ -1220,7 +1497,6 @@ footer{
                     data-color="#DB2777"
                     style="background:#DB2777"
                     type="button"
-                    aria-label="Pink"
                 ></button>
 
                 <button
@@ -1228,7 +1504,6 @@ footer{
                     data-color="#DC2626"
                     style="background:#DC2626"
                     type="button"
-                    aria-label="Red"
                 ></button>
 
                 <button
@@ -1236,7 +1511,6 @@ footer{
                     data-color="#EA580C"
                     style="background:#EA580C"
                     type="button"
-                    aria-label="Orange"
                 ></button>
 
                 <button
@@ -1244,7 +1518,6 @@ footer{
                     data-color="#059669"
                     style="background:#059669"
                     type="button"
-                    aria-label="Green"
                 ></button>
 
                 <button
@@ -1252,7 +1525,6 @@ footer{
                     data-color="#0891B2"
                     style="background:#0891B2"
                     type="button"
-                    aria-label="Cyan"
                 ></button>
 
             </div>
@@ -1263,13 +1535,96 @@ footer{
 
 
 
-    <!-- SHAPE -->
+    <!-- =================================================
+         CORNER COLOR + BACKGROUND COLOR
+    ================================================== -->
+
+    <div class="color-row-small">
+
+
+        <div class="small-color">
+
+            <div class="small-color-title">
+                CORNER COLOR
+            </div>
+
+            <div class="small-color-inner">
+
+                <div
+                    id="cornerPreview"
+                    class="small-preview"
+                    style="background:#000000"
+                >
+
+                    <input
+                        id="cornerColorPicker"
+                        type="color"
+                        value="#000000"
+                    >
+
+                </div>
+
+                <span
+                    id="cornerHex"
+                    class="small-hex"
+                >
+                    #000000
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="small-color">
+
+            <div class="small-color-title">
+                BACKGROUND
+            </div>
+
+            <div class="small-color-inner">
+
+                <div
+                    id="backgroundPreview"
+                    class="small-preview"
+                    style="background:#ffffff"
+                >
+
+                    <input
+                        id="backgroundPicker"
+                        type="color"
+                        value="#ffffff"
+                    >
+
+                </div>
+
+                <span
+                    id="backgroundHex"
+                    class="small-hex"
+                >
+                    #FFFFFF
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =================================================
+         MODULE SHAPES
+    ================================================== -->
 
     <div class="custom-section">
 
         <div class="control-label">
 
-            <span>MODULE SHAPE</span>
+            <span>
+                QR BOX / MODULE SHAPE
+            </span>
 
             <span
                 id="shapeLabel"
@@ -1294,17 +1649,9 @@ footer{
 
                 <div class="shape-preview">
 
-                    <span></span>
-                    <span></span>
-                    <span></span>
-
-                    <span></span>
-                    <span></span>
-                    <span></span>
-
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
 
                 </div>
 
@@ -1325,17 +1672,9 @@ footer{
 
                 <div class="shape-preview rounded">
 
-                    <span></span>
-                    <span></span>
-                    <span></span>
-
-                    <span></span>
-                    <span></span>
-                    <span></span>
-
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
 
                 </div>
 
@@ -1346,7 +1685,7 @@ footer{
             </button>
 
 
-            <!-- DOTS -->
+            <!-- DOT -->
 
             <button
                 class="shape-option"
@@ -1356,22 +1695,37 @@ footer{
 
                 <div class="shape-preview dots">
 
-                    <span></span>
-                    <span></span>
-                    <span></span>
-
-                    <span></span>
-                    <span></span>
-                    <span></span>
-
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
 
                 </div>
 
                 <span class="shape-name">
                     Dots
+                </span>
+
+            </button>
+
+
+            <!-- DIAMOND -->
+
+            <button
+                class="shape-option"
+                data-shape="diamond"
+                type="button"
+            >
+
+                <div class="shape-preview diamond">
+
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+
+                </div>
+
+                <span class="shape-name">
+                    Diamond
                 </span>
 
             </button>
@@ -1387,21 +1741,243 @@ footer{
 
                 <div class="shape-preview soft">
 
-                    <span></span>
-                    <span></span>
-                    <span></span>
-
-                    <span></span>
-                    <span></span>
-                    <span></span>
-
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
 
                 </div>
 
                 <span class="shape-name">
+                    Soft
+                </span>
+
+            </button>
+
+
+            <!-- CROSS -->
+
+            <button
+                class="shape-option"
+                data-shape="cross"
+                type="button"
+            >
+
+                <div class="shape-preview cross">
+
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+
+                </div>
+
+                <span class="shape-name">
+                    Cross
+                </span>
+
+            </button>
+
+
+            <!-- MINI -->
+
+            <button
+                class="shape-option"
+                data-shape="mini"
+                type="button"
+            >
+
+                <div class="shape-preview">
+
+                    <span style="transform:scale(.65)"></span>
+                    <span style="transform:scale(.65)"></span>
+                    <span style="transform:scale(.65)"></span>
+
+                    <span style="transform:scale(.65)"></span>
+                    <span style="transform:scale(.65)"></span>
+                    <span style="transform:scale(.65)"></span>
+
+                    <span style="transform:scale(.65)"></span>
+                    <span style="transform:scale(.65)"></span>
+                    <span style="transform:scale(.65)"></span>
+
+                </div>
+
+                <span class="shape-name">
+                    Mini
+                </span>
+
+            </button>
+
+
+            <!-- PILL -->
+
+            <button
+                class="shape-option"
+                data-shape="pill"
+                type="button"
+            >
+
+                <div class="shape-preview rounded">
+
+                    <span style="border-radius:50%"></span>
+                    <span style="border-radius:50%"></span>
+                    <span style="border-radius:50%"></span>
+
+                    <span style="border-radius:50%"></span>
+                    <span style="border-radius:50%"></span>
+                    <span style="border-radius:50%"></span>
+
+                    <span style="border-radius:50%"></span>
+                    <span style="border-radius:50%"></span>
+                    <span style="border-radius:50%"></span>
+
+                </div>
+
+                <span class="shape-name">
+                    Pill
+                </span>
+
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         FINDER SHAPES
+    ================================================== -->
+
+    <div class="custom-section">
+
+        <div class="control-label">
+
+            <span>
+                THREE CORNER / FINDER SHAPE
+            </span>
+
+            <span
+                id="finderLabel"
+                class="control-value"
+            >
+                Square
+            </span>
+
+        </div>
+
+
+        <div class="finder-grid">
+
+
+            <button
+                class="finder-option active"
+                data-finder="square"
+                type="button"
+            >
+
+                <div class="finder-preview">
+
+                    <div class="finder-square"></div>
+
+                </div>
+
+                <span class="finder-name">
+                    Square
+                </span>
+
+            </button>
+
+
+            <button
+                class="finder-option"
+                data-finder="rounded"
+                type="button"
+            >
+
+                <div class="finder-preview">
+
+                    <div class="finder-rounded"></div>
+
+                </div>
+
+                <span class="finder-name">
+                    Rounded
+                </span>
+
+            </button>
+
+
+            <button
+                class="finder-option"
+                data-finder="circle"
+                type="button"
+            >
+
+                <div class="finder-preview">
+
+                    <div class="finder-circle"></div>
+
+                </div>
+
+                <span class="finder-name">
+                    Circle
+                </span>
+
+            </button>
+
+
+            <button
+                class="finder-option"
+                data-finder="ring"
+                type="button"
+            >
+
+                <div class="finder-preview">
+
+                    <div class="finder-ring"></div>
+
+                </div>
+
+                <span class="finder-name">
+                    Ring
+                </span>
+
+            </button>
+
+
+            <button
+                class="finder-option"
+                data-finder="diamond"
+                type="button"
+            >
+
+                <div class="finder-preview">
+
+                    <div class="finder-diamond"></div>
+
+                </div>
+
+                <span class="finder-name">
+                    Diamond
+                </span>
+
+            </button>
+
+
+            <button
+                class="finder-option"
+                data-finder="soft"
+                type="button"
+            >
+
+                <div class="finder-preview">
+
+                    <div class="finder-soft"></div>
+
+                </div>
+
+                <span class="finder-name">
                     Soft
                 </span>
 
@@ -1414,7 +1990,9 @@ footer{
 
 
 
-    <!-- WHITE BORDER -->
+    <!-- =================================================
+         WHITE BORDER
+    ================================================== -->
 
     <div class="custom-section">
 
@@ -1436,7 +2014,7 @@ footer{
 
         <div class="border-control">
 
-            <span style="font-size:12px;">
+            <span>
                 ◻
             </span>
 
@@ -1447,7 +2025,6 @@ footer{
                 min="8"
                 max="30"
                 value="16"
-                step="1"
             >
 
             <span
@@ -1466,7 +2043,7 @@ footer{
 
 
 <!-- =====================================================
-     PREVIEW
+     STEP 03 PREVIEW
 ===================================================== -->
 
 <section class="card">
@@ -1475,15 +2052,17 @@ footer{
 
         <h2>
 
-            <span class="step">03</span>
+            <span class="step">
+                03
+            </span>
 
             Live QR preview
 
         </h2>
 
         <p>
-            Your QR includes a clean white scanning area
-            and your content underneath.
+            Your QR is generated on a clean square canvas
+            with your content underneath.
         </p>
 
     </div>
@@ -1534,6 +2113,7 @@ footer{
 
     <div class="actions">
 
+
         <button
             id="edit"
             class="action edit"
@@ -1551,6 +2131,7 @@ footer{
         >
             ↓ Download PNG
         </button>
+
 
     </div>
 
@@ -1624,17 +2205,60 @@ const colorHex =
 const colorLabel =
     document.getElementById("colorLabel");
 
+const cornerColorPicker =
+    document.getElementById(
+        "cornerColorPicker"
+    );
+
+const cornerPreview =
+    document.getElementById(
+        "cornerPreview"
+    );
+
+const cornerHex =
+    document.getElementById(
+        "cornerHex"
+    );
+
+const backgroundPicker =
+    document.getElementById(
+        "backgroundPicker"
+    );
+
+const backgroundPreview =
+    document.getElementById(
+        "backgroundPreview"
+    );
+
+const backgroundHex =
+    document.getElementById(
+        "backgroundHex"
+    );
+
 const shapeLabel =
-    document.getElementById("shapeLabel");
+    document.getElementById(
+        "shapeLabel"
+    );
+
+const finderLabel =
+    document.getElementById(
+        "finderLabel"
+    );
 
 const borderRange =
-    document.getElementById("borderRange");
+    document.getElementById(
+        "borderRange"
+    );
 
 const borderLabel =
-    document.getElementById("borderLabel");
+    document.getElementById(
+        "borderLabel"
+    );
 
 const borderNumber =
-    document.getElementById("borderNumber");
+    document.getElementById(
+        "borderNumber"
+    );
 
 
 /* =========================================================
@@ -1644,7 +2268,16 @@ const borderNumber =
 let selectedColor =
     "#000000";
 
+let selectedCornerColor =
+    "#000000";
+
+let selectedBackground =
+    "#FFFFFF";
+
 let selectedShape =
+    "square";
+
+let selectedFinder =
     "square";
 
 let selectedBorder =
@@ -1674,14 +2307,14 @@ text.addEventListener(
 
 
 /* =========================================================
-   COLOR
+   MAIN COLOR
 ========================================================= */
 
 colorPicker.addEventListener(
     "input",
     function(){
 
-        setColor(
+        setMainColor(
             colorPicker.value
         );
 
@@ -1689,23 +2322,19 @@ colorPicker.addEventListener(
 );
 
 
-function setColor(color){
+function setMainColor(color){
 
     selectedColor =
         color.toUpperCase();
 
-
     colorPicker.value =
         selectedColor;
-
 
     colorPreview.style.background =
         selectedColor;
 
-
     colorHex.textContent =
         selectedColor;
-
 
     colorLabel.textContent =
         selectedColor;
@@ -1728,7 +2357,7 @@ function setColor(color){
         );
 
 
-    updatePreviewIfReady();
+    updatePreview();
 
 }
 
@@ -1746,7 +2375,7 @@ document
                 "click",
                 function(){
 
-                    setColor(
+                    setMainColor(
                         button.dataset.color
                     );
 
@@ -1758,7 +2387,55 @@ document
 
 
 /* =========================================================
-   SHAPE
+   CORNER COLOR
+========================================================= */
+
+cornerColorPicker.addEventListener(
+    "input",
+    function(){
+
+        selectedCornerColor =
+            cornerColorPicker.value
+                .toUpperCase();
+
+        cornerPreview.style.background =
+            selectedCornerColor;
+
+        cornerHex.textContent =
+            selectedCornerColor;
+
+        updatePreview();
+
+    }
+);
+
+
+/* =========================================================
+   BACKGROUND COLOR
+========================================================= */
+
+backgroundPicker.addEventListener(
+    "input",
+    function(){
+
+        selectedBackground =
+            backgroundPicker.value
+                .toUpperCase();
+
+        backgroundPreview.style.background =
+            selectedBackground;
+
+        backgroundHex.textContent =
+            selectedBackground;
+
+        updatePreview();
+
+    }
+);
+
+
+/* =========================================================
+   MODULE SHAPE
 ========================================================= */
 
 document
@@ -1802,7 +2479,61 @@ document
                             .textContent;
 
 
-                    updatePreviewIfReady();
+                    updatePreview();
+
+                }
+            );
+
+        }
+    );
+
+
+/* =========================================================
+   FINDER SHAPE
+========================================================= */
+
+document
+    .querySelectorAll(".finder-option")
+    .forEach(
+        function(button){
+
+            button.addEventListener(
+                "click",
+                function(){
+
+                    document
+                        .querySelectorAll(
+                            ".finder-option"
+                        )
+                        .forEach(
+                            function(item){
+
+                                item.classList.remove(
+                                    "active"
+                                );
+
+                            }
+                        );
+
+
+                    button.classList.add(
+                        "active"
+                    );
+
+
+                    selectedFinder =
+                        button.dataset.finder;
+
+
+                    finderLabel.textContent =
+                        button
+                            .querySelector(
+                                ".finder-name"
+                            )
+                            .textContent;
+
+
+                    updatePreview();
 
                 }
             );
@@ -1824,17 +2555,14 @@ borderRange.addEventListener(
                 borderRange.value
             );
 
-
         borderLabel.textContent =
             selectedBorder +
             " px";
 
-
         borderNumber.textContent =
             selectedBorder;
 
-
-        updatePreviewIfReady();
+        updatePreview();
 
     }
 );
@@ -1892,7 +2620,7 @@ generate.addEventListener(
 
 
 /* =========================================================
-   CREATE BASE QR
+   BASE QR
 ========================================================= */
 
 function createBaseQR(value){
@@ -1914,7 +2642,7 @@ function createBaseQR(value){
 
                     colorDark:"#000000",
 
-                    colorLight:"#ffffff",
+                    colorLight:"#FFFFFF",
 
                     correctLevel:
                         QRCode.CorrectLevel.H
@@ -1949,10 +2677,6 @@ function createBaseQR(value){
 
                 qrLink.textContent =
                     value;
-
-
-                qrLink.style.display =
-                    "block";
 
 
                 customQR.style.display =
@@ -1992,7 +2716,7 @@ function createBaseQR(value){
    LIVE UPDATE
 ========================================================= */
 
-function updatePreviewIfReady(){
+function updatePreview(){
 
     if(
         lastValue &&
@@ -2035,12 +2759,11 @@ function drawProfessionalQR(
 
 
     /*
-     * Pure white background.
+     * Background
      */
 
     ctx.fillStyle =
-        "#ffffff";
-
+        selectedBackground;
 
     ctx.fillRect(
         0,
@@ -2068,11 +2791,6 @@ function drawProfessionalQR(
     }
 
 
-    /*
-     * Fallback to original QR
-     * if matrix isn't available.
-     */
-
     if(!modules){
 
         const source =
@@ -2098,13 +2816,9 @@ function drawProfessionalQR(
     }
 
 
-    const moduleCount =
+    const count =
         modules.length;
 
-
-    /*
-     * White quiet zone.
-     */
 
     const quiet =
         selectedBorder;
@@ -2117,26 +2831,26 @@ function drawProfessionalQR(
 
     const moduleSize =
         usable /
-        moduleCount;
+        count;
 
+
+    /*
+     * Draw normal modules.
+     */
 
     ctx.fillStyle =
         selectedColor;
 
 
-    /*
-     * Draw every module.
-     */
-
     for(
         let row = 0;
-        row < moduleCount;
+        row < count;
         row++
     ){
 
         for(
             let col = 0;
-            col < moduleCount;
+            col < count;
             col++
         ){
 
@@ -2144,21 +2858,34 @@ function drawProfessionalQR(
                 modules[row][col]
             ){
 
+                /*
+                 * Skip finder areas.
+                 * They are drawn separately.
+                 */
+
+                if(
+                    isFinderModule(
+                        row,
+                        col,
+                        count
+                    )
+                ){
+
+                    continue;
+
+                }
+
+
                 drawModule(
                     ctx,
 
-                    col * moduleSize +
-                    quiet,
+                    quiet +
+                    col * moduleSize,
 
-                    row * moduleSize +
-                    quiet,
+                    quiet +
+                    row * moduleSize,
 
-                    moduleSize,
-
-                    row,
-                    col,
-
-                    moduleCount
+                    moduleSize
                 );
 
             }
@@ -2167,121 +2894,156 @@ function drawProfessionalQR(
 
     }
 
+
+    /*
+     * Draw all 3 finder patterns.
+     */
+
+    drawFinder(
+        ctx,
+        quiet,
+        quiet,
+        moduleSize
+    );
+
+
+    drawFinder(
+        ctx,
+        quiet +
+        (count - 7) *
+        moduleSize,
+        quiet,
+        moduleSize
+    );
+
+
+    drawFinder(
+        ctx,
+        quiet,
+        quiet +
+        (count - 7) *
+        moduleSize,
+        moduleSize
+    );
+
 }
 
 
 /* =========================================================
-   DRAW MODULE
+   MODULE SHAPE
 ========================================================= */
 
 function drawModule(
     ctx,
     x,
     y,
-    size,
-    row,
-    col,
-    moduleCount
+    size
 ){
 
-    /*
-     * Keep finder/corner patterns
-     * square for scanner reliability.
-     */
-
-    if(
-        isFinderArea(
-            row,
-            col,
-            moduleCount
-        )
-    ){
-
-        ctx.fillRect(
-            Math.round(x),
-            Math.round(y),
-            Math.ceil(size + .2),
-            Math.ceil(size + .2)
-        );
-
-        return;
-
-    }
-
-
     let gap = 0;
+
     let radius = 0;
 
 
-    if(
-        selectedShape ===
-        "square"
+    switch(
+        selectedShape
     ){
 
-        gap = 0;
-        radius = 0;
+        case "square":
+
+            gap = 0;
+            break;
+
+
+        case "rounded":
+
+            gap =
+                size * .035;
+
+            radius =
+                size * .28;
+
+            break;
+
+
+        case "dots":
+
+            gap =
+                size * .10;
+
+            break;
+
+
+        case "diamond":
+
+            drawDiamond(
+                ctx,
+                x,
+                y,
+                size
+            );
+
+            return;
+
+
+        case "soft":
+
+            gap =
+                size * .025;
+
+            radius =
+                size * .16;
+
+            break;
+
+
+        case "cross":
+
+            drawCross(
+                ctx,
+                x,
+                y,
+                size
+            );
+
+            return;
+
+
+        case "mini":
+
+            gap =
+                size * .18;
+
+            radius =
+                size * .12;
+
+            break;
+
+
+        case "pill":
+
+            gap =
+                size * .04;
+
+            radius =
+                size * .45;
+
+            break;
 
     }
 
 
-    else if(
-        selectedShape ===
-        "rounded"
-    ){
-
-        gap =
-            size * .035;
-
-        radius =
-            size * .28;
-
-    }
-
-
-    else if(
-        selectedShape ===
-        "dots"
-    ){
-
-        gap =
-            size * .10;
-
-        radius =
-            size / 2;
-
-    }
-
-
-    else if(
-        selectedShape ===
-        "soft"
-    ){
-
-        gap =
-            size * .025;
-
-        radius =
-            size * .16;
-
-    }
-
-
-    const drawSize =
+    const s =
         size -
         gap * 2;
 
 
-    const drawX =
+    const px =
         x + gap;
 
-
-    const drawY =
+    const py =
         y + gap;
 
-
-    /*
-     * DOTS
-     */
 
     if(
         selectedShape ===
@@ -2293,7 +3055,7 @@ function drawModule(
         ctx.arc(
             x + size / 2,
             y + size / 2,
-            drawSize / 2,
+            s / 2,
             0,
             Math.PI * 2
         );
@@ -2305,20 +3067,16 @@ function drawModule(
     }
 
 
-    /*
-     * SQUARE
-     */
-
     if(
         selectedShape ===
         "square"
     ){
 
         ctx.fillRect(
-            drawX,
-            drawY,
-            drawSize,
-            drawSize
+            px,
+            py,
+            s,
+            s
         );
 
         return;
@@ -2326,16 +3084,12 @@ function drawModule(
     }
 
 
-    /*
-     * ROUNDED / SOFT
-     */
-
     roundedRect(
         ctx,
-        drawX,
-        drawY,
-        drawSize,
-        drawSize,
+        px,
+        py,
+        s,
+        s,
         radius
     );
 
@@ -2345,10 +3099,93 @@ function drawModule(
 
 
 /* =========================================================
-   FINDER PATTERN AREA
+   DIAMOND MODULE
 ========================================================= */
 
-function isFinderArea(
+function drawDiamond(
+    ctx,
+    x,
+    y,
+    size
+){
+
+    const cx =
+        x + size / 2;
+
+    const cy =
+        y + size / 2;
+
+    const r =
+        size * .44;
+
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        cx,
+        cy - r
+    );
+
+    ctx.lineTo(
+        cx + r,
+        cy
+    );
+
+    ctx.lineTo(
+        cx,
+        cy + r
+    );
+
+    ctx.lineTo(
+        cx - r,
+        cy
+    );
+
+    ctx.closePath();
+
+    ctx.fill();
+
+}
+
+
+/* =========================================================
+   CROSS MODULE
+========================================================= */
+
+function drawCross(
+    ctx,
+    x,
+    y,
+    size
+){
+
+    const w =
+        size * .34;
+
+
+    ctx.fillRect(
+        x + size * .33,
+        y,
+        w,
+        size
+    );
+
+
+    ctx.fillRect(
+        x,
+        y + size * .33,
+        size,
+        w
+    );
+
+}
+
+
+/* =========================================================
+   FINDER MODULE CHECK
+========================================================= */
+
+function isFinderModule(
     row,
     col,
     count
@@ -2375,15 +3212,15 @@ function isFinderArea(
 
 
     for(
-        const zone of zones
+        const z of zones
     ){
 
         if(
-            row >= zone.top &&
-            row < zone.top + 7 &&
+            row >= z.top &&
+            row < z.top + 7 &&
 
-            col >= zone.left &&
-            col < zone.left + 7
+            col >= z.left &&
+            col < z.left + 7
         ){
 
             return true;
@@ -2394,6 +3231,476 @@ function isFinderArea(
 
 
     return false;
+
+}
+
+
+/* =========================================================
+   DRAW FINDER
+========================================================= */
+
+function drawFinder(
+    ctx,
+    x,
+    y,
+    moduleSize
+){
+
+    const size =
+        moduleSize * 7;
+
+
+    const center =
+        x + size / 2;
+
+
+    const cy =
+        y + size / 2;
+
+
+    ctx.fillStyle =
+        selectedCornerColor;
+
+
+    /*
+     * SQUARE
+     */
+
+    if(
+        selectedFinder ===
+        "square"
+    ){
+
+        ctx.fillRect(
+            x,
+            y,
+            size,
+            size
+        );
+
+
+        ctx.fillStyle =
+            selectedBackground;
+
+
+        ctx.fillRect(
+            x + moduleSize,
+            y + moduleSize,
+            moduleSize * 5,
+            moduleSize * 5
+        );
+
+
+        ctx.fillStyle =
+            selectedCornerColor;
+
+
+        ctx.fillRect(
+            x + moduleSize * 2,
+            y + moduleSize * 2,
+            moduleSize * 3,
+            moduleSize * 3
+        );
+
+
+        return;
+
+    }
+
+
+    /*
+     * ROUNDED
+     */
+
+    if(
+        selectedFinder ===
+        "rounded"
+    ){
+
+        drawRoundedFinder(
+            ctx,
+            x,
+            y,
+            size,
+            moduleSize,
+            .18
+        );
+
+        return;
+
+    }
+
+
+    /*
+     * SOFT
+     */
+
+    if(
+        selectedFinder ===
+        "soft"
+    ){
+
+        drawRoundedFinder(
+            ctx,
+            x,
+            y,
+            size,
+            moduleSize,
+            .30
+        );
+
+        return;
+
+    }
+
+
+    /*
+     * CIRCLE
+     */
+
+    if(
+        selectedFinder ===
+        "circle"
+    ){
+
+        drawCircularFinder(
+            ctx,
+            center,
+            cy,
+            size,
+            moduleSize
+        );
+
+        return;
+
+    }
+
+
+    /*
+     * RING
+     */
+
+    if(
+        selectedFinder ===
+        "ring"
+    ){
+
+        drawRingFinder(
+            ctx,
+            center,
+            cy,
+            size,
+            moduleSize
+        );
+
+        return;
+
+    }
+
+
+    /*
+     * DIAMOND
+     */
+
+    if(
+        selectedFinder ===
+        "diamond"
+    ){
+
+        drawDiamondFinder(
+            ctx,
+            center,
+            cy,
+            size,
+            moduleSize
+        );
+
+        return;
+
+    }
+
+}
+
+
+/* =========================================================
+   ROUNDED FINDER
+========================================================= */
+
+function drawRoundedFinder(
+    ctx,
+    x,
+    y,
+    size,
+    m,
+    radiusFactor
+){
+
+    ctx.fillStyle =
+        selectedCornerColor;
+
+
+    roundedRect(
+        ctx,
+        x,
+        y,
+        size,
+        size,
+        size * radiusFactor
+    );
+
+    ctx.fill();
+
+
+    ctx.fillStyle =
+        selectedBackground;
+
+
+    roundedRect(
+        ctx,
+        x + m,
+        y + m,
+        size - 2*m,
+        size - 2*m,
+        size * radiusFactor * .75
+    );
+
+    ctx.fill();
+
+
+    ctx.fillStyle =
+        selectedCornerColor;
+
+
+    roundedRect(
+        ctx,
+        x + 2*m,
+        y + 2*m,
+        size - 4*m,
+        size - 4*m,
+        size * radiusFactor * .55
+    );
+
+    ctx.fill();
+
+}
+
+
+/* =========================================================
+   CIRCULAR FINDER
+========================================================= */
+
+function drawCircularFinder(
+    ctx,
+    cx,
+    cy,
+    size,
+    m
+){
+
+    ctx.fillStyle =
+        selectedCornerColor;
+
+
+    ctx.beginPath();
+
+    ctx.arc(
+        cx,
+        cy,
+        size / 2,
+        0,
+        Math.PI * 2
+    );
+
+    ctx.fill();
+
+
+    ctx.fillStyle =
+        selectedBackground;
+
+
+    ctx.beginPath();
+
+    ctx.arc(
+        cx,
+        cy,
+        size / 2 - m,
+        0,
+        Math.PI * 2
+    );
+
+    ctx.fill();
+
+
+    ctx.fillStyle =
+        selectedCornerColor;
+
+
+    ctx.beginPath();
+
+    ctx.arc(
+        cx,
+        cy,
+        size / 2 - 2*m,
+        0,
+        Math.PI * 2
+    );
+
+    ctx.fill();
+
+}
+
+
+/* =========================================================
+   RING FINDER
+========================================================= */
+
+function drawRingFinder(
+    ctx,
+    cx,
+    cy,
+    size,
+    m
+){
+
+    ctx.fillStyle =
+        selectedCornerColor;
+
+
+    ctx.beginPath();
+
+    ctx.arc(
+        cx,
+        cy,
+        size / 2,
+        0,
+        Math.PI * 2
+    );
+
+    ctx.fill();
+
+
+    ctx.fillStyle =
+        selectedBackground;
+
+
+    ctx.beginPath();
+
+    ctx.arc(
+        cx,
+        cy,
+        size / 2 - m * 1.4,
+        0,
+        Math.PI * 2
+    );
+
+    ctx.fill();
+
+
+    ctx.fillStyle =
+        selectedCornerColor;
+
+
+    ctx.beginPath();
+
+    ctx.arc(
+        cx,
+        cy,
+        m * 1.45,
+        0,
+        Math.PI * 2
+    );
+
+    ctx.fill();
+
+}
+
+
+/* =========================================================
+   DIAMOND FINDER
+========================================================= */
+
+function drawDiamondFinder(
+    ctx,
+    cx,
+    cy,
+    size,
+    m
+){
+
+    drawDiamondShape(
+        ctx,
+        cx,
+        cy,
+        size * .72,
+        selectedCornerColor
+    );
+
+
+    drawDiamondShape(
+        ctx,
+        cx,
+        cy,
+        size * .47,
+        selectedBackground
+    );
+
+
+    drawDiamondShape(
+        ctx,
+        cx,
+        cy,
+        size * .28,
+        selectedCornerColor
+    );
+
+}
+
+
+/* =========================================================
+   DIAMOND SHAPE
+========================================================= */
+
+function drawDiamondShape(
+    ctx,
+    cx,
+    cy,
+    size,
+    color
+){
+
+    const r =
+        size / 2;
+
+
+    ctx.fillStyle =
+        color;
+
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        cx,
+        cy - r
+    );
+
+    ctx.lineTo(
+        cx + r,
+        cy
+    );
+
+    ctx.lineTo(
+        cx,
+        cy + r
+    );
+
+    ctx.lineTo(
+        cx - r,
+        cy
+    );
+
+    ctx.closePath();
+
+    ctx.fill();
 
 }
 
@@ -2559,7 +3866,7 @@ edit.addEventListener(
 
 
 /* =========================================================
-   DOWNLOAD SQUARE PNG
+   DOWNLOAD
 ========================================================= */
 
 download.addEventListener(
@@ -2578,9 +3885,7 @@ download.addEventListener(
 
 
         /*
-         * SQUARE HIGH-RESOLUTION OUTPUT
-         *
-         * 1400 × 1400
+         * 1400 × 1400 SQUARE PNG
          */
 
         const scale =
@@ -2615,12 +3920,11 @@ download.addEventListener(
 
 
         /*
-         * White square background.
+         * Background
          */
 
         ctx.fillStyle =
-            "#ffffff";
-
+            selectedBackground;
 
         ctx.fillRect(
             0,
@@ -2631,7 +3935,7 @@ download.addEventListener(
 
 
         /*
-         * Large QR.
+         * QR
          */
 
         const qrSize =
@@ -2660,7 +3964,7 @@ download.addEventListener(
 
 
         /*
-         * URL/text underneath.
+         * URL
          */
 
         ctx.imageSmoothingEnabled =
@@ -2668,7 +3972,7 @@ download.addEventListener(
 
 
         ctx.fillStyle =
-            "#111827";
+            selectedCornerColor;
 
 
         ctx.font =
@@ -2710,7 +4014,7 @@ download.addEventListener(
 
 
         /*
-         * PNG download.
+         * Download
          */
 
         output.toBlob(
@@ -2806,10 +4110,10 @@ function showError(message){
 
 
 /* =========================================================
-   INITIAL COLOR
+   INITIAL VALUES
 ========================================================= */
 
-setColor(
+setMainColor(
     "#000000"
 );
 
